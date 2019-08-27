@@ -5,10 +5,11 @@ import axios from "axios";
 
 class MatchDetailForm extends React.Component {
   handleMatchIdSubmit = (event, request) => {
+    event.preventDefault();
     const matchId = event.target.elements.matchId.value;
 
     axios
-      .get("http://127.0.0.1:8000/api/match-details", {
+      .get("http://127.0.0.1:8000/api/match-details/", {
         params: { match_id: matchId }
       })
       .then(res => console.log(res))
